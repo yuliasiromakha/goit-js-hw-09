@@ -22,10 +22,10 @@ function onSubmitForm(event) {
   const step = Number(event.target.elements.step.value);
   const amount = Number(event.target.elements.amount.value);
 
-  // if (!delay || !step || (amount === 0 && amount !== "")) {
-  //   Notiflix.Notify.warning('Please fill in all fields');
-  //   return;
-  // }
+  if (!delay || !step || amount === undefined) {
+    Notiflix.Notify.warning('Please fill in all fields');
+    return;
+  }
 
   const inputs = event.target.querySelectorAll('input');
   const submitBtn = event.target.querySelector('button');
