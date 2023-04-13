@@ -17,7 +17,7 @@ const form = document.querySelector('.form');
 
 function onSubmitForm(event) {
   event.preventDefault();
-  
+
   const delay = Number(event.target.elements.delay.value);
   const step = Number(event.target.elements.step.value);
   const amount = Number(event.target.elements.amount.value);
@@ -27,12 +27,6 @@ function onSubmitForm(event) {
     return;
   }
 
-  const inputs = event.target.querySelectorAll('input');
-  const submitBtn = event.target.querySelector('button');
-  inputs.forEach(input => input.disabled = true);
-  submitBtn.disabled = true;
-
-  // Create promises
   const promises = [];
   for (let i = 1; i <= amount; i++) {
     const position = i;
@@ -47,8 +41,7 @@ function onSubmitForm(event) {
     const interval = setInterval(() => {
       if (Notiflix.Notify) return;
       clearInterval(interval);
-      inputs.forEach(input => input.disabled = false);
-      submitBtn.disabled = false;
+      event.target.querySelectorAll('input').forEach(input => input.disabled = false);
     }, 100);
   });
 

@@ -4,6 +4,7 @@ import Notiflix from 'notiflix';
 
 const timer = document.querySelector('.timer');
 const startButton = document.querySelector('button[data-start]');
+startButton.disabled = true;
 
 const options = {
     enableTime: true,
@@ -18,7 +19,7 @@ const options = {
         Notiflix.Notify.failure('Please choose a date in the future');
         startButton.disabled = true;
         return;
-      }else {
+      } else if (selectedDate > Date.now()) {
         startButton.disabled = false;
       }
     },
