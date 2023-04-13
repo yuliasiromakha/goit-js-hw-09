@@ -27,15 +27,6 @@ const options = {
 
 flatpickr("input#datetime-picker", options);
 
-// function checkDate(selectedDate) {
-//     if (selectedDate < new Date()) {  
-//         startButton.disabled = true;
-       
-//     } else {
-//         startButton.disabled = false;
-//     }
-// }
-
 startButton.addEventListener('click', () => {
 
     const selectedDate = new Date(document.querySelector('input#datetime-picker').value);
