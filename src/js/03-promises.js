@@ -22,7 +22,7 @@ function onSubmitForm(event) {
   const step = Number(event.target.elements.step.value);
   const amount = Number(event.target.elements.amount.value);
 
-  if (!delay || !step === undefined) {
+  if (amount === undefined) {
     Notiflix.Notify.warning('Please fill in all fields');
     return;
   }
